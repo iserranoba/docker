@@ -49,7 +49,7 @@
         {"song": "Ahora que..."},
         {"song": "19 dias y 500 noches"},
         {"song": "Cerrado por derribo"},
-    {,
+    ],
     "realease_date": {"$date": "1999-09-14"},
     "language": "spanish",
     "album_id": "5"
