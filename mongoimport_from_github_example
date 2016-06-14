@@ -7,3 +7,7 @@ mongoimport --db test --collection records --file https://github.com/iserranoba/
 curl -O https://github.com/iserranoba/docker/blob/master/mongotestdb.json
 #and then do the Import
 mongoimport --db test --collection records --file mongotestdb.json
+#That will not work either because it downloads html headers and other thrash
+#the right url is:
+curl -O https://raw.githubusercontent.com/iserranoba/docker/prueba-db-mongo/mongotestdb.json
+#Consider that prueba-db-mongo is a branch as I'm making losts of changes to the raw DB data
