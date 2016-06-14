@@ -1,4 +1,4 @@
 #this is copied directly from https://docs.mongodb.com/getting-started/shell/import-data/
 mongoimport --db users --collection contacts --file contacts.json
 #this is my guess
-mongoimport --db music --collection records --file https://github.com/iserranoba/docker/
+mongoimport --db music --collection records --file https://github.com/iserranoba/docker/blob/master/mongotestdb.json
