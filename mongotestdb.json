@@ -1,12 +1,5 @@
 {
     "title": "Dirt",
     "band": "Alice in Chains",
-    "song_list": {
-        "song": "Them Bones",
-        "song": "Dam That River",
-        "song": "Rain When I Die",
-        "song": "Sickman",
-        "song": "Rooster",
-    },
     "album_id": "1"
 }
