@@ -1,4 +1,9 @@
 #this is copied directly from https://docs.mongodb.com/getting-started/shell/import-data/
 mongoimport --db users --collection contacts --file contacts.json
-#this is my guess
-mongoimport --db music --collection records --file https://github.com/iserranoba/docker/blob/master/mongotestdb.json
+#this is my guess and IT DOES NOT WORK!!!
+mongoimport --db test --collection records --file https://github.com/iserranoba/docker/blob/master/mongotestdb.json
+#unless I faind other way that should be done in two steps
+#download the mongotestdb.json first
+curl -O https://github.com/iserranoba/docker/blob/master/mongotestdb.json
+#and then do the Import
+mongoimport --db test --collection records --file mongotestdb.json
