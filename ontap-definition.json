@@ -1,0 +1,10 @@
+{
+    "version": 1,
+    "storageDriverName": "ontap-nas",
+    "managementLIF": "192.168.99.20",
+    "dataLIF": "192.168.99.21",
+    "svm": "SVM1",
+    "username": "vsadmin",
+    "password": "xxxxxx",
+    "aggregate": "aggr1"
+}
