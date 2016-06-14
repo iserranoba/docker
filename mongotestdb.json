@@ -39,7 +39,7 @@
         {"song": "Echoes"},
     ],
     "realease_date": {"$date": "1972-09"},
-    "Type": "live"
+    "Type": "live",
     "album_id": "4"
 }
 {
