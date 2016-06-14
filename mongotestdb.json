@@ -54,3 +54,16 @@
     "language": "spanish",
     "album_id": "5"
 }
+{
+    "title": "We Sing. We Dance. We Steal Things.",
+    "band": "Jason Mraz",
+    "song_list": [
+        {"song": "I'm Yours"},
+        {"song": "Only Human"},
+        {"song": "A Beautiful Mess"},
+    ],
+    "realease_date": {"$date": "1999-09-14"},
+    "language": "english",
+    "rating": "5",
+    "album_id": "6"
+}
