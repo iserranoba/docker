@@ -1,0 +1,35 @@
+#binaries for Mongo included in $PATH
+/usr/local/mongodb/bin
+#different files such as raw data on json or config files to play with as personal repository
+/Users/israels/mongo
+#db path Override standard path /data/db
+dbpath = /usr/local/mongodb_data
+#Steps done to automatically start mongod on osx startup
+   in /Library/LaunchDaemons/ create file org.mongo.mongod.plist whose content is (from: http://wiki.summercode.com/how_to_install_mongodb_on_mac_os_x):
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+        <key>Label</key>
+        <string>org.mongodb.mongod</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>/usr/local/mongodb/bin/mongod</string>
+          <string>run</string>
+          <string>--config</string>
+          <string>/usr/local/mongodb/mongod.conf</string>
+        </array>
+        <key>RunAtLoad</key>
+          <true/>
+        <key>KeepAlive</key>
+          <true/>
+        <key>WorkingDirectory</key>
+          <string>/usr/local/mongodb</string>
+        <key>StandardErrorPath</key>
+          <string>/var/log/mongodb/output.log</string>
+        <key>StandardOutPath</key>
+          <string>/var/log/mongodb/output.log</string>
+        </dict>
+        </plist>
+
+
