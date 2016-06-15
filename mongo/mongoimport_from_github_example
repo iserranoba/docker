@@ -10,4 +10,6 @@ mongoimport --db test --collection records --file mongotestdb.json
 #That will not work either because it downloads html headers and other thrash
 #the right url is:
 curl -O https://raw.githubusercontent.com/iserranoba/docker/prueba-db-mongo/mongotestdb.json
-#Consider that prueba-db-mongo is a branch as I'm making losts of changes to the raw DB data
+
+#CORRECT ON as mongo subdirectory has been added for better identification of resources
+curl -O https://raw.githubusercontent.com/iserranoba/docker/master/mongo/mongotestdb.json
