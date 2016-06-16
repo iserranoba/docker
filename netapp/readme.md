@@ -5,7 +5,7 @@ For what I understand instead of "registering" the driver as indicated in the do
 Instead:
 place the ontap-nas.json file (defining the config) in the /etc/netappdvp/ directory. Create it if not present: 
 `sudo mkdir -p /etc/netappdvp`
-# download and unpack the application
+##download and unpack the application
 `wget https://github.com/NetApp/netappdvp/releases/download/v1.2/netappdvp-1.2.tar.gz`
 `tar zxf netappdvp-1.2.tar.gz`
 
