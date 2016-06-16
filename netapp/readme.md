@@ -1,7 +1,7 @@
 #Folder for Ontap and other NetApp technology
 There's a configuration file in .json to instruct the driver/plugin the IP's, SVM's,User/password and so on
 For what I understand instead of "registering" the driver as indicated in the docker documentation
-**TO BE COMPLETED**
+[Plugins API](https://docs.docker.com/engine/extend/plugin_api/)
 Instead:
 place the ontap-nas.json file (defining the config) in the /etc/netappdvp/ directory. Create it if not present: 
 `sudo mkdir -p /etc/netappdvp`
