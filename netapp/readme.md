@@ -3,7 +3,7 @@ There's a configuration file in .json to instruct the driver/plugin the IP's, SV
 For what I understand instead of "registering" the driver as indicated in the docker documentation
 [Plugins API](https://docs.docker.com/engine/extend/plugin_api/)
 Instead:
-place the ontap-nas.json file (defining the config) in the /etc/netappdvp/ directory. Create it if not present: 
+place the ontap-nas.json file (defining the config) in the `/etc/netappdvp/` directory. Create it if not present: 
 `sudo mkdir -p /etc/netappdvp`
 ##download and unpack the application
 `wget https://github.com/NetApp/netappdvp/releases/download/v1.2/netappdvp-1.2.tar.gz`
