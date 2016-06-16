@@ -7,6 +7,7 @@ place the ontap-nas.json file (defining the config) in the `/etc/netappdvp/` dir
 `sudo mkdir -p /etc/netappdvp`
 ##download and unpack the application
 `wget https://github.com/NetApp/netappdvp/releases/download/v1.2/netappdvp-1.2.tar.gz`
+
 `tar zxf netappdvp-1.2.tar.gz`
 
 ###move to a location in the bin path
