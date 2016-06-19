@@ -31,6 +31,21 @@ On the browser: **http://192.168.99.100:32779**
 We should be getting NGINX welcome page
 
 ###Mongo
-We will try to connect to the `mongod`from the client (on OSX)
+We will connect to the `mongod`from the client (on OSX)
 
 `mongo --port 32777 --host 192.168.99.100`
+
+MongoDB shell version: 3.2.7
+connecting to: 192.168.99.100:32797/test
+
+Successfully connected!!
+
+If we execute a shell into the container:
+`docker exec -it db /bin/bash`
+and do a `ps -ef`
+we see the processess running:
+`UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 16:34 ?        00:00:00 /bin/bash /etc/onstartup.sh
+root         5     1  0 16:34 ?        00:00:01 /usr/bin/mongod
+root        27     0  1 16:37 ?        00:00:00 /bin/bash
+root        35    27  0 16:37 ?        00:00:00 ps -ef`
