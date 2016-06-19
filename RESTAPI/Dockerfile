@@ -19,13 +19,13 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 # Define mountable directories.
-VOLUME ["/data/db"]
+# this VOLUME ["/data/db"] will go with the VOLUME from nginx below 
 
 # Define working directory.
 WORKDIR /data
 
 # Define default command.
-CMD ["mongod"]
+#CMD ["mongod"] -- this has been included in a startup shell script so both mongo and nginx are started
 
 # Expose ports.
 #   - 27017: process
@@ -40,16 +40,17 @@ RUN \
   apt-get install -y nginx && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx
+  chown -R www-data:www-data /var/lib/nginx && \
+  echo -e "/usr/bin/mongod\n/usr/sbin/nginx" > /etc/onstartup.sh
 
 # Define mountable directories.
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "/data/db"]
 
 # Define working directory.
 WORKDIR /etc/nginx
 
-# Define default command.
-CMD ["nginx"]
+# Define default command. This should start the mongod and nginx deamons
+CMD ["/bin/bash", "/etc/onstartup.sh"]
 
 # Expose ports.
 EXPOSE 80
