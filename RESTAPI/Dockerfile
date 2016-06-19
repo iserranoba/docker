@@ -34,8 +34,8 @@ EXPOSE 27017
 EXPOSE 28017
 
 # Install NGINX
+# removed this line as first RUN   add-apt-repository -y ppa:nginx/stable && \
 RUN \
-  add-apt-repository -y ppa:nginx/stable && \
   apt-get update && \
   apt-get install -y nginx && \
   rm -rf /var/lib/apt/lists/* && \
