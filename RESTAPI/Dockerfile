@@ -7,7 +7,7 @@
 
 # Pull base image.
 FROM ubuntu:latest
-MAINTAINER: seris
+MAINTAINER seris
 
 # Install MONGODB
 # Import MongoDB public GPG key AND create a MongoDB list file
