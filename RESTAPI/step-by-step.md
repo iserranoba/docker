@@ -1,5 +1,6 @@
 ##The step-by-step of RESTAPI deployment with NGINX and MONGODB
-###Let's run the container
+
+###First we need a container with both nginx and mongodb
 After creating the image and making sure it starts both mongod and nginx daemons
 we create a container with `seris/docker` image
 
