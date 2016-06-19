@@ -50,11 +50,11 @@ we see the processess running:
 
 root         1     0  0 16:50 ?        00:00:00 /bin/bash /etc/onstartup.sh
 
-root         5     1  0 16:50 ?        00:00:00 **/usr/bin/mongod**
+root         5     1  0 16:50 ?        00:00:00 /usr/bin/mongod
 
-root         6     1  0 16:50 ?        00:00:00 **nginx: master process /usr/sbin/nginx**
+root         6     1  0 16:50 ?        00:00:00 nginx: master process /usr/sbin/nginx
 
-www-data    10     6  0 16:50 ?        00:00:00 **nginx: worker process**
+www-data    10     6  0 16:50 ?        00:00:00 nginx: worker process
 
 root        19     0  0 16:52 ?        00:00:00 /bin/bash
 
