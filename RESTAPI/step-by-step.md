@@ -46,18 +46,18 @@ and do a `ps -ef`
 
 we see the processess running:
 
-`UID        PID  PPID  C STIME TTY          TIME CMD
+`UID        PID  PPID  C STIME TTY          TIME CMD`
 
-root         1     0  0 16:50 ?        00:00:00 /bin/bash /etc/onstartup.sh
+`root         1     0  0 16:50 ?        00:00:00 /bin/bash /etc/onstartup.sh`
 
-root         5     1  0 16:50 ?        00:00:00 /usr/bin/mongod
+`root         5     1  0 16:50 ?        00:00:00 /usr/bin/mongod`
 
-root         6     1  0 16:50 ?        00:00:00 nginx: master process /usr/sbin/nginx
+`root         6     1  0 16:50 ?        00:00:00 nginx: master process /usr/sbin/nginx`
 
-www-data    10     6  0 16:50 ?        00:00:00 nginx: worker process
+`www-data    10     6  0 16:50 ?        00:00:00 nginx: worker process`
 
-root        19     0  0 16:52 ?        00:00:00 /bin/bash
+`root        19     0  0 16:52 ?        00:00:00 /bin/bash`
 
-root        27    19  0 16:52 ?        00:00:00 ps -ef`
+`root        27    19  0 16:52 ?        00:00:00 ps -ef`
 
 
