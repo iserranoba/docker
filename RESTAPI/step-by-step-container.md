@@ -21,13 +21,17 @@ First let's look at the port assigned to 80 in the docker engine:
 
 80/tcp -> 0.0.0.0:32779
 
-And the ip address of the Engine
+And the ip address of the Engine (on MAC)
 
 `docker-machine ip default`
 
 192.168.99.100
 
 On the browser: **http://192.168.99.100:32779**
+
+if docker is running on ubuntu directly we need the ip address of the host:
+
+`http://192.198.99.200:32779`
 
 We should be getting NGINX welcome page
 
