@@ -1,6 +1,8 @@
 ### Snippet for nginx configuration
 ### Only gathering info. I HAVE NOT TRIED
 
+FROM http://stackoverflow.com/questions/28094865/nginx-configuration-for-a-restful-api
+
 `server {`
 
         server_name myServer;
