@@ -9,6 +9,6 @@
         {"song": "Rooster"},
         {"song": "Dirt"}
     ],
-    "realease_date": {"$date": "1992-09-29"},
+    "realease_date": {"$date": "1992-09-29T00:00:00.000Z"},
     "album_id": "1"
 }
