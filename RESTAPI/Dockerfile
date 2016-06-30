@@ -49,9 +49,16 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 # Define working directory.
 WORKDIR /etc/nginx
 
-# Define default command. This should start the mongod and nginx deamons
-CMD ["/bin/bash", "/etc/onstartup.sh"]
-
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
+
+# Install PHP (PENDIENTE DE TERMINAR!!!!)
+RUN \
+  apt-get update && \
+  apt-get install php7.0-fpm
+  
+  
+  
+# Define default command. This should start the mongod and nginx deamons
+CMD ["/bin/bash", "/etc/onstartup.sh"]
