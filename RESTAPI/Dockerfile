@@ -56,7 +56,7 @@ EXPOSE 443
 # Install PHP (PENDIENTE DE TERMINAR!!!!)
 RUN \
   apt-get update && \
-  apt-get install php7.0-fpm
+  apt-get install -y php7.0-fpm
   
   
   
