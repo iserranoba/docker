@@ -82,7 +82,7 @@ RUN \
 # Create the script to startup the proceses. We will leave the Mongodb startup for the future. Now we just want nginx and php
 #  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
 RUN \
-  echo "/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+  echo "/usr/bin/mongod &\n/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
   
   
   
