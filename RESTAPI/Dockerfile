@@ -58,7 +58,7 @@ EXPOSE 443
 RUN \
   apt-get update && \
   apt-get install -y php7.0-fpm && \
-  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n /etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
   
   
   
