@@ -87,4 +87,4 @@ RUN \
   
   
 # Define default command. This should start the mongod and nginx deamons
-#CMD ["/bin/bash", "/etc/onstartup.sh"]
+CMD ["/bin/bash", "/etc/onstartup.sh"]
