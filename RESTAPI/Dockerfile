@@ -40,8 +40,9 @@ RUN \
   apt-get install -y nginx && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx && \
-  echo "/usr/bin/mongod &\n/usr/sbin/nginx" > /etc/onstartup.sh
+  chown -R www-data:www-data /var/lib/nginx
+  #echo "/usr/bin/mongod &\n/usr/sbin/nginx &\n /etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+  
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "/data/db"]
@@ -56,9 +57,10 @@ EXPOSE 443
 # Install PHP (PENDIENTE DE TERMINAR!!!!)
 RUN \
   apt-get update && \
-  apt-get install -y php7.0-fpm
+  apt-get install -y php7.0-fpm && \
+  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n /etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
   
   
   
 # Define default command. This should start the mongod and nginx deamons
-CMD ["/bin/bash", "/etc/onstartup.sh"]
+#CMD ["/bin/bash", "/etc/onstartup.sh"]
