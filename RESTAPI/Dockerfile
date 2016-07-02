@@ -64,6 +64,20 @@ RUN \
   apt-get update && \
   apt-get install -y php7.0-fpm
   
+  
+# Now that we have all the necessary stuff in the container, we need to modify files
+# from: https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
+# Configuring PHP processor
+RUN \
+  awk ‘{ gsub(“;cgi.fix_pathinfo=1”,”cgi.fix_pathinfo=0”); print}’ /etc/php/7.0/fpm/php.ini > php.ini_tmp && \
+  mv php.ini_tmp php.ini
+  
+# We will pull the nginx configuration to use PHP
+RUN \
+  curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
+  mv /tmp/nginx-conf /etc/nginx/sites-available/default
+  
+  
 # Create the script to startup the proceses. We will leave the Mongodb startup for the future. Now we just want nginx and php
 #  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
 RUN \
