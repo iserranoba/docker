@@ -9,10 +9,11 @@
 FROM ubuntu:latest
 MAINTAINER seris
 
-# Install vim & vi
+# Install vim/vi & curl
 RUN \
   apt-get update && \
-  apt-get install -y vim
+  apt-get install -y vim && \
+  apt-get install -y curl
   
 # Install MONGODB
 # Import MongoDB public GPG key AND create a MongoDB list file
