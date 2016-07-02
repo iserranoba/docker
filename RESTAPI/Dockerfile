@@ -15,6 +15,16 @@ RUN \
   apt-get install -y vim && \
   apt-get install -y curl
   
+# Install PHP
+RUN \
+  apt-get update && \
+  apt-get install -y php7.0-fpm
+  
+# Configuring PHP processor
+RUN \
+  awk '{ gsub(";cgi.fix_pathinfo=1","cgi.fix_pathinfo=0"); print}' /etc/php/7.0/fpm/php.ini > /etc/php/7.0/fpm/php.ini_tmp && \
+  mv /etc/php/7.0/fpm/php.ini_tmp /etc/php/7.0/fpm/php.ini
+  
 # Install MONGODB
 # Import MongoDB public GPG key AND create a MongoDB list file
 RUN \
@@ -48,7 +58,15 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
   #echo "/usr/bin/mongod &\n/usr/sbin/nginx &\n /etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
-  
+# We will pull the nginx configuration to use PHP
+RUN \
+  curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
+  mv /tmp/nginx-conf /etc/nginx/sites-available/default
+
+# Create the script to startup the proceses. We will leave the Mongodb startup for the future. Now we just want nginx and php
+#  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+RUN \
+  echo "/usr/bin/mongod &\n/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "/data/db"]
@@ -56,35 +74,20 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 # Define working directory.
 WORKDIR /etc/nginx
 
+# Define default command. This should start the mongod and nginx deamons
+CMD ["/bin/bash", "/etc/onstartup.sh"]
+
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
 
-# Install PHP
-RUN \
-  apt-get update && \
-  apt-get install -y php7.0-fpm
-  
   
 # Now that we have all the necessary stuff in the container, we need to modify files
 # from: https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
-# Configuring PHP processor
-RUN \
-  awk '{ gsub(";cgi.fix_pathinfo=1","cgi.fix_pathinfo=0"); print}' /etc/php/7.0/fpm/php.ini > /etc/php/7.0/fpm/php.ini_tmp && \
-  mv /etc/php/7.0/fpm/php.ini_tmp /etc/php/7.0/fpm/php.ini
+
   
-# We will pull the nginx configuration to use PHP
-RUN \
-  curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
-  mv /tmp/nginx-conf /etc/nginx/sites-available/default
+
   
+
   
-# Create the script to startup the proceses. We will leave the Mongodb startup for the future. Now we just want nginx and php
-#  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
-RUN \
-  echo "/usr/bin/mongod &\n/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
-  
-  
-  
-# Define default command. This should start the mongod and nginx deamons
-CMD ["/bin/bash", "/etc/onstartup.sh"]
+
