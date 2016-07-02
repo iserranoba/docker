@@ -59,11 +59,15 @@ WORKDIR /etc/nginx
 EXPOSE 80
 EXPOSE 443
 
-# Install PHP (PENDIENTE DE TERMINAR!!!!)
+# Install PHP
 RUN \
   apt-get update && \
-  apt-get install -y php7.0-fpm && \
-  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+  apt-get install -y php7.0-fpm
+  
+# Create the script to startup the proceses. We will leave the Mongodb startup for the future. Now we just want nginx and php
+#  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+RUN \
+  echo "/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
   
   
   
