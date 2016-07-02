@@ -74,9 +74,9 @@ RUN \
   mv php.ini_tmp php.ini
   
 # We will pull the nginx configuration to use PHP
-RUN \
-  curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
-  mv /tmp/nginx-conf /etc/nginx/sites-available/default
+#RUN \
+#  curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
+#  mv /tmp/nginx-conf /etc/nginx/sites-available/default
   
   
 # Create the script to startup the proceses. We will leave the Mongodb startup for the future. Now we just want nginx and php
