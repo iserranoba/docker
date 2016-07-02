@@ -70,7 +70,7 @@ RUN \
 # from: https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
 # Configuring PHP processor
 RUN \
-  awk ‘{ gsub(“;cgi.fix_pathinfo=1”,”cgi.fix_pathinfo=0”); print}’ /etc/php/7.0/fpm/php.ini > /etc/php/7.0/fpm/php.ini_tmp && \
+  awk '{ gsub(";cgi.fix_pathinfo=1","cgi.fix_pathinfo=0"); print}' /etc/php/7.0/fpm/php.ini > /etc/php/7.0/fpm/php.ini_tmp && \
   mv /etc/php/7.0/fpm/php.ini_tmp /etc/php/7.0/fpm/php.ini
   
 # We will pull the nginx configuration to use PHP
