@@ -67,7 +67,7 @@ RUN \
 # Create the script to startup the proceses. We will leave mongo to execute last in order to allow the container run in deamon mode
 #  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
 RUN \
-  echo "/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start & \n/usr/bin/mongod" > /etc/onstartup.sh
+  echo "/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start & \n/usr/bin/mongod --smallfiles" > /etc/onstartup.sh
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "/data/db"]
