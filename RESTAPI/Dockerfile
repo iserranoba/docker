@@ -63,10 +63,10 @@ RUN \
   curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
   mv /tmp/nginx-conf /etc/nginx/sites-available/default
 
-# Create the script to startup the proceses. We will leave the Mongodb startup for the future. Now we just want nginx and php
+# Create the script to startup the proceses. We will leave mongo to execute last in order to allow the container run in deamon mode
 #  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
 RUN \
-  echo "/usr/bin/mongod &\n/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+  echo "/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start & \n/usr/bin/mongod" > /etc/onstartup.sh
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "/data/db"]
