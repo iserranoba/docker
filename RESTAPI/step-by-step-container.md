@@ -30,7 +30,31 @@ if docker is running on ubuntu directly we need the ip address of the host:
 
 `http://192.198.99.200:32779`
 
-We should be getting NGINX welcome page
+We should be getting NGINX welcome page:
+
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
 
 ###Mongo
 We will connect to the `mongod`from the client (on OSX. Use 192.168.99.200 on ubuntu VM)
