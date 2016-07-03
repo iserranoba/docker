@@ -9,7 +9,41 @@ We want Nginx to redirect all /api/v1/* requests to our apiv1.php script. For th
 `rewrite ^/api/v1/([^/]+)/([^/]+)/?$ /apiv1.php?class=$1&method=$2? last;`
 
 The `default` file in `/etc/nginx/sites-available/` would look like that:
+```
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
+    root /var/www/html;
+    index index.php index.html index.htm index.nginx-debian.html;
 
+    server_name _;
+    
+    rewrite ^/api/v1/([^/]+)/([^/]+)/?$ /apiv1.php?class=$1&method=$2? last;
+    
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+To test the new configuration we will create a php script called apiv1.php in the root directory:
+```
+<?php
+$class  = filter_input(INPUT_GET, 'class',  FILTER_SANITIZE_STRING);
+$method = filter_input(INPUT_GET, 'method', FILTER_SANITIZE_STRING);
+
+echo $class;
+echo '<br />';
+echo $method;
+```
 
 
