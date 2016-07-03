@@ -61,7 +61,7 @@ RUN \
 # We will pull the nginx configuration to use PHP
 # VERY IMPORTANT: substitute the url below for the correct location of the nginx conf file for PHP
 RUN \
-  curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
+  curl https://raw.githubusercontent.com/iserranoba/docker/master/RESTAPI/nginx-default-file -o /tmp/nginx-conf && \
   mv /tmp/nginx-conf /etc/nginx/sites-available/default
 
 # Create the script to startup the proceses. We will leave mongo to execute last in order to allow the container run in deamon mode
