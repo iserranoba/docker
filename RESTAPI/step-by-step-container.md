@@ -85,5 +85,11 @@ www-data    46    44  0 09:27 ?        00:00:00 php-fpm: pool www
 root        54     0  0 09:36 ?        00:00:00 /bin/bash
 root        62    54  0 09:36 ?        00:00:00 ps -ef
 ```
+### Dockerfile and config files
+Once everything is running we must make sure we have the right config files included in the Dockerfile.
 
+(based on : https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04)
+
+Basically consists in modifying `/etc/php/7.0/fpm/php.ini`and substituting the `/etc/nginx/sites-available/default`file for one
+included in the githup repo (see Dockerfile)
 
