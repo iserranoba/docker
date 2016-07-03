@@ -4,6 +4,8 @@ Now that we have the v1 up and running we need to do more modifications in order
 php will be responsible to implement the logic for the http requests
 we will do a very simple API implementation and will leave the interaction with Mondo DB for later.
 
+*The following based on: http://stackoverflow.com/questions/28094865/nginx-configuration-for-a-restful-api*
+
 We want Nginx to redirect all /api/v1/* requests to our apiv1.php script. For that we will modify again `/etc/nginx/sites-available/default` to include the following in the server block:
 
 `rewrite ^/api/v1/([^/]+)/([^/]+)/?$ /apiv1.php?class=$1&method=$2? last;`
