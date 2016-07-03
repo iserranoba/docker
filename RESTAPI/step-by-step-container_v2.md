@@ -47,5 +47,7 @@ echo $class;
 echo '<br />';
 echo $method;
 ```
+Now let's go an do the testing (subtitute myServer for ip:port):
 
+`http://myServer/api/v1/members/getInfo`
 
