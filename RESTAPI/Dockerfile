@@ -59,6 +59,7 @@ RUN \
   chown -R www-data:www-data /var/lib/nginx
   #echo "/usr/bin/mongod &\n/usr/sbin/nginx &\n /etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
 # We will pull the nginx configuration to use PHP
+# VERY IMPORTANT: substitute the url below for the correct location of the nginx conf file for PHP
 RUN \
   curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
   mv /tmp/nginx-conf /etc/nginx/sites-available/default
