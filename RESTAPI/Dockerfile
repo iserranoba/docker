@@ -9,6 +9,22 @@
 FROM ubuntu:latest
 MAINTAINER seris
 
+# Install vim/vi & curl
+RUN \
+  apt-get update && \
+  apt-get install -y vim && \
+  apt-get install -y curl
+  
+# Install PHP
+RUN \
+  apt-get update && \
+  apt-get install -y php7.0-fpm
+  
+# Configuring PHP processor
+RUN \
+  awk '{ gsub(";cgi.fix_pathinfo=1","cgi.fix_pathinfo=0"); print}' /etc/php/7.0/fpm/php.ini > /etc/php/7.0/fpm/php.ini_tmp && \
+  mv /etc/php/7.0/fpm/php.ini_tmp /etc/php/7.0/fpm/php.ini
+  
 # Install MONGODB
 # Import MongoDB public GPG key AND create a MongoDB list file
 RUN \
@@ -40,8 +56,18 @@ RUN \
   apt-get install -y nginx && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx && \
-  echo "/usr/bin/mongod &\n/usr/sbin/nginx" > /etc/onstartup.sh
+  chown -R www-data:www-data /var/lib/nginx
+  #echo "/usr/bin/mongod &\n/usr/sbin/nginx &\n /etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+# We will pull the nginx configuration to use PHP
+# VERY IMPORTANT: substitute the url below for the correct location of the nginx conf file for PHP
+RUN \
+  curl https://raw.githubusercontent.com/iserranoba/docker/RESTAPI-containter-update/RESTAPI/nginx-default -o /tmp/nginx-conf && \
+  mv /tmp/nginx-conf /etc/nginx/sites-available/default
+
+# Create the script to startup the proceses. We will leave mongo to execute last in order to allow the container run in deamon mode
+#  echo "/etc/init.d/mongod start \n/etc/init.d/nginx start \n/etc/init.d/php7.0-fpm start" > /etc/onstartup.sh
+RUN \
+  echo "/etc/init.d/nginx start & \n/etc/init.d/php7.0-fpm start & \n/usr/bin/mongod" > /etc/onstartup.sh
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html", "/data/db"]
@@ -55,3 +81,14 @@ CMD ["/bin/bash", "/etc/onstartup.sh"]
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
+
+  
+# Now that we have all the necessary stuff in the container, we need to modify files
+# from: https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
+
+  
+
+  
+
+  
+
