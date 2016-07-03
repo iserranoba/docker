@@ -12,20 +12,17 @@ We want to make sure everything is running
 First let's look at the port assigned to 80 in the docker engine (output depends on the execution):
 
 `docker port apiv1`
-
+```
 27017/tcp -> 0.0.0.0:32777
-
 28017/tcp -> 0.0.0.0:32776
-
 443/tcp -> 0.0.0.0:32778
-
 80/tcp -> 0.0.0.0:32779
-
+```
 And the ip address of the Engine (on MAC)
 
 `docker-machine ip default`
 
-192.168.99.100
+`192.168.99.100`
 
 On the browser: **http://192.168.99.100:32779**
 
