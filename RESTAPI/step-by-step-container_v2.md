@@ -51,7 +51,8 @@ Now let's go an do the testing (subtitute myServer for ip:port):
 
 `http://myServer/api/v1/members/getInfo`
 
-#TO BE CHECKED
+##Testing the php integration and playing around on HTTP methods
+
 As we are going to be testing different php scrips until we finally create the REST interface we are going to use the capability to mount a host directory onto the container. For that purpose we will be developing back on the mac and mount the `/Users/<user_name>/php-docs` directory in the mac onto the `/var/www/html` in the container through:
 
 `docker run -d -P --name rest -v /Users/<user_name>/php-docs:/var/www/html seris/apiv2`
