@@ -18,7 +18,7 @@ RUN \
 # Install PHP
 RUN \
   apt-get update && \
-  apt-get install -y php7.0-fpm
+  apt-get install -y php7.0-fpm php-mongodb
   
 # Configuring PHP processor
 RUN \
