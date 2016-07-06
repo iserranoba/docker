@@ -7,7 +7,10 @@ We will start by playing around to understand how it works before integrating th
 
 `docker pull jenkins`
 
-will pull the jenkins server image. For persistency we are going to create a `/Users/<user_name>/jenkins` folder and then run the container which we will name (obvious) jenkins
+will pull the jenkins server image. For persistency we are going to create a `/Users/<user_name>/jenkins` (on OSX) folder and then run the container which we will name (obvious) jenkins
 
 `docker run -p 8080:8080 -p 50000:50000 --name jenkins -v /Users/<user_name>/jenkins:/var/jenkins_home jenkins`
 
+An now let's connect with our browser to Jenkins:
+
+`http://192.168.99.100:8080` if accessing from OSX
