@@ -1,9 +1,9 @@
 {
   "date": "2016-07-07",
-  "people": [
-    "name": "Juan Garcia",
-    "name": "Pepe Sancho",
-    "name": "Maria Olston"
+  "attendees": [
+    {"name": "Juan Garcia"},
+    {"name": "Pepe Sancho"},
+    {"name": "Maria Olston"}
   ],
   "rest_name": "La Barraca"
 }
