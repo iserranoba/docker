@@ -18,7 +18,7 @@
   "ticket_total": "34.12"
 }
 {
-  "date": {"$date": "2016-06-023T113:12:45.000Z"},
+  "date": {"$date": "2016-06-023T13:12:45.000Z"},
   "attendees": [
     {"name": "Jorge Perez"},
     {"name": "Jean Cotino"},
@@ -28,3 +28,15 @@
   "rest_name": "3C-El cafe",
   "ticket_total": "55.32"
 }
+{
+  "date": {"$date": "2016-06-15T22:22:12.000Z"},
+  "attendees": [
+    {"name": "Jorge Perez"},
+    {"name": "Jean Cotino"},
+    {"name": "Luis Sanchez"},
+  ],
+  "rest_name": "Era Coquela",
+  "ticket_total": "153.00",
+  "coord": "42.7021139,0.7993465"
+}
+
