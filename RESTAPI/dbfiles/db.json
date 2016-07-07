@@ -8,3 +8,23 @@
   "rest_name": "La Barraca",
   "ticket_total": "96.64"
 }
+{
+  "date": {"$date": "2016-07-03T16:31:51.000Z"},
+  "attendees": [
+    {"name": "Juan Gomez"},
+    {"name": "Luis Sancho"},
+  ],
+  "rest_name": "Zoquito",
+  "ticket_total": "34.12"
+}
+{
+  "date": {"$date": "2016-06-023T113:12:45.000Z"},
+  "attendees": [
+    {"name": "Jorge Perez"},
+    {"name": "Jean Cotino"},
+    {"name": "Luis Sanchez"},
+    {"name": "Teresa Villanueva"}
+  ],
+  "rest_name": "3C-El cafe",
+  "ticket_total": "55.32"
+}
