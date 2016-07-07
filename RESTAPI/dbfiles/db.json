@@ -1,5 +1,5 @@
 {
-  "date": "2016-07-07",
+  "date": {"$date": "2016-07-07T16:30:51.000Z"},
   "attendees": [
     {"name": "Juan Garcia"},
     {"name": "Pepe Sancho"},
