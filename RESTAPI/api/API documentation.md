@@ -47,3 +47,8 @@ example
        }
      ]
   }```
+___
+
+## GET /tickets/{ticketId}
+
+Returns the deatils for a given ticket
