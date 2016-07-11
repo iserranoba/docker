@@ -72,6 +72,35 @@ HTTP Status Code
 
 |field|Description|
 |---|---|
+|date|date of ticket|
+|attendees|array of names of attendees|
+|rest_name|name of restaurant|
+|total|total amount paid|
+|coord|coordinates of the restaurant|
 
 
 example
+
+```
+"result": {
+  "code": "200",
+  "desc": "OK"
+}
+"data": {
+  "ticket": {
+    {
+    "date": {"$date": "2016-06-15T22:22:12.000Z"},
+    "attendees": [
+      {"name": "Jorge Perez"},
+      {"name": "Jean Cotino"},
+      {"name": "Luis Sanchez"},
+    ],
+    "rest_name": "Era Coquela",
+    "ticket_total": "153.00",
+    "coord": "42.7021139,0.7993465"
+    }
+  }
+}
+```
+
+
