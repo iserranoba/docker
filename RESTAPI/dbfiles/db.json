@@ -1,4 +1,5 @@
 {
+  "id": "01",
   "date": {"$date": "2016-07-07T16:30:51.000Z"},
   "attendees": [
     {"name": "Juan Garcia"},
@@ -9,6 +10,7 @@
   "ticket_total": "96.64"
 }
 {
+  "id": "02",
   "date": {"$date": "2016-07-03T16:31:51.000Z"},
   "attendees": [
     {"name": "Juan Gomez"},
@@ -18,6 +20,7 @@
   "ticket_total": "34.12"
 }
 {
+  "id": "03",
   "date": {"$date": "2016-06-023T13:12:45.000Z"},
   "attendees": [
     {"name": "Jorge Perez"},
@@ -29,6 +32,7 @@
   "ticket_total": "55.32"
 }
 {
+  "id": "04",
   "date": {"$date": "2016-06-15T22:22:12.000Z"},
   "attendees": [
     {"name": "Jorge Perez"},
