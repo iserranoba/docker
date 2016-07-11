@@ -52,4 +52,26 @@ example
 
 ## GET /tickets/{ticketId}
 
-Returns the deatils for a given ticket
+Returns the details for a given ticket
+
+###Headers
+|Headers||
+|---|---|
+|Accept|Accept Header: Used to indicate the content-type acceptable|
+|required|application/json|
+
+|URI Parameters||
+|---|---|
+|ticketId|ticket identifier
+|required (string)|example: 01|
+
+###Response
+HTTP Status Code
+
+200
+
+|field|Description|
+|---|---|
+
+
+example
