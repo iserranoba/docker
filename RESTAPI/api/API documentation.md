@@ -23,7 +23,8 @@ HTTP Status Code
 
 example
 
-```{
+```
+{
   "result": {
      "code": "200",
      "desc": "OK"
@@ -46,8 +47,8 @@ example
          "amount": "145.12"
        }
      ]
-  }```
-___
+  }
+```
 
 ## GET /tickets/{ticketId}
 
