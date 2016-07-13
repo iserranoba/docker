@@ -169,4 +169,23 @@ example
   }
 }
 ```
+400
 
+Bad Request
+
+PENDING List if codes
+
+example
+```
+{
+  "result": {
+    "code": 400,
+    "info": "Bad request"
+  },
+  "errors": [
+    {
+      "code": "requestBodyInvalid",
+      "description": "request body is invalid"
+    }
+  ]
+} 
