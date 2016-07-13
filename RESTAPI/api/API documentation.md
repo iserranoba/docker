@@ -82,13 +82,13 @@ HTTP Status Code
 example
 
 ```
+{
 "result": {
   "code": "200",
   "desc": "OK"
-}
+ },
 "data": {
   "ticket": {
-    {
     "date": {"$date": "2016-06-15T22:22:12.000Z"},
     "attendees": [
       {"name": "Jorge Perez"},
@@ -98,9 +98,50 @@ example
     "rest_name": "Era Coquela",
     "ticket_total": "153.00",
     "coord": "42.7021139,0.7993465"
+    
     }
   }
 }
 ```
+## POST /tickets
 
+Create a new ticket
+
+###Headers
+|Headers||
+|---|---|
+|Content-type|MIME type of the body of the request|
+|required (string)|example application/json|
+|Accept|Accept Header: Used to indicate the content-type acceptable|
+|required|exampleapplication/json|
+
+###Request
+TO BE DEFINED
+###Response
+####HTTP Status Code
+201
+
+|field|Description|
+|---|---|
+|ticket_id|identifier for the new ticket|
+|date|date of ticket|
+|ticket_total|total amount paid|
+
+####BODY
+
+example
+
+```
+{
+"result": {
+  "code": "201",
+  "desc": "Ticket created"
+}
+"data": {
+  "ticket_id": "09",
+  "date": {"$date": "2016-06-15T22:22:12.000Z"},
+  "ticket_total": "153.00",
+  }
+}
+```
 
