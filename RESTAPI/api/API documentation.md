@@ -173,7 +173,7 @@ example
 
 Bad Request
 
-PENDING List if codes
+**PENDING List if codes**
 
 example
 ```
