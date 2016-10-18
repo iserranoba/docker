@@ -8,3 +8,4 @@ RUN echo "Flask==0.10.1" > requirements.txt
 RUN pip install -r requirements.txt   
 ENTRYPOINT ["python"]
 CMD ["app.py"]
+ 
