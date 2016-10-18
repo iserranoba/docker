@@ -18,7 +18,7 @@ RUN \
 # Install PHP
 RUN \
   apt-get update && \
-  apt-get install -y php7.0-fpm
+  apt-get install -y php7.0-fpm php-mongodb
   
 # Configuring PHP processor
 RUN \
@@ -61,7 +61,7 @@ RUN \
 # We will pull the nginx configuration to use PHP
 # VERY IMPORTANT: substitute the url below for the correct location of the nginx conf file for PHP
 RUN \
-  curl https://raw.githubusercontent.com/iserranoba/docker/master/RESTAPI/nginx-default-file -o /tmp/nginx-conf && \
+  curl https://raw.githubusercontent.com/iserranoba/docker/apiv2/RESTAPI/nginx-default-file -o /tmp/nginx-conf && \
   mv /tmp/nginx-conf /etc/nginx/sites-available/default
 
 # Create the script to startup the proceses. We will leave mongo to execute last in order to allow the container run in deamon mode
